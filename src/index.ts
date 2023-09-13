@@ -1,14 +1,16 @@
 import express, { Request, Response } from 'express'
+import dotenv from 'dotenv'
+
+import { videosRouter } from './routes/index';
+
+dotenv.config()
   
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 5000;
 
-app.get('/', (req: Request, res: Response) => {
-    const hell = 'HELLO'
-    res.send(hell)
-})
+app.use('/hometask_01/api/testing', videosRouter)
   
 app.listen(PORT, () => {
-    console.log('-01123-')
-}
+    console.log(`SERVER START PORT-${process.env.PORT}`)
+  }
 )
