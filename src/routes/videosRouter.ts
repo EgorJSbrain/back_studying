@@ -46,14 +46,32 @@ videosRouter.post('/', async (req: Request, res: Response) => {
   res.status(CodeResponseEnum.OK_200).send(video)
 })
 
-videosRouter.put('/', (req: Request, res: Response) => {
+videosRouter.put('/:id', async (req: Request, res: Response) => {
+  const video = await VideoService.updateVideo(req.params.id, req.body)
 
+  if (!video) {
+    return res.sendStatus(CodeResponseEnum.BAD_REQUEST_400)
+  }
+
+  res.status(CodeResponseEnum.OK_200).send(video)
 })
 
-videosRouter.delete('/:id', (req: Request, res: Response) => {
+videosRouter.delete('/:id', async (req: Request, res: Response) => {
+  const video = await VideoService.deleteVideo(req.params.id)
 
+  if (!video) {
+    return res.sendStatus(CodeResponseEnum.BAD_REQUEST_400)
+  }
+
+  res.status(CodeResponseEnum.OK_200).send(video)
 })
 
-videosRouter.delete('/', (req: Request, res: Response) => {
+videosRouter.delete('/', async (req: Request, res: Response) => {
+  const response = await VideoService.deleteAll()
 
+  if (!response) {
+    return res.sendStatus(CodeResponseEnum.BAD_REQUEST_400)
+  }
+
+  res.status(CodeResponseEnum.OK_200)
 })

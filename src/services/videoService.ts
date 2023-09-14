@@ -4,9 +4,13 @@ import { Video } from "../models/videoModel"
 
 export const VideoService = {
   async getVideos () {
-    const videos = await Video.find()
-    
-    return videos
+    try {
+      const videos = await Video.find()
+
+      return videos
+    } catch {
+      return []
+    }
   },
 
   async getVideoById (id: string) {
@@ -20,8 +24,42 @@ export const VideoService = {
   },
 
   async createVideo (data: CreateVideoDto) {
-    const video = await Video.create(data)
+    try {
+      const video = await Video.create(data)
 
-    return video
+      return video
+    } catch {
+      return null
+    }
+  },
+
+  async updateVideo (id: string, data: CreateVideoDto) {
+    try {
+      const video = await Video.findByIdAndUpdate(id, data)
+
+      return video
+    } catch {
+      return null
+    }
+  },
+
+  async deleteVideo (id: string) {
+    try {
+      const video = await Video.findOneAndRemove({ _id: id })
+
+      return video
+    } catch {
+      return null
+    }
+  },
+
+  async deleteAll () {
+    try {
+      const deleted = await Video.deleteMany({})
+
+      return deleted.deletedCount
+    } catch {
+      return null
+    }
   }
 }
