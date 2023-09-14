@@ -14,7 +14,7 @@ videosRouter.get('/', async (req: Request, res: Response) => {
   }
 
   // res.status(CodeResponseEnum.OK_200).send(videos)
-  res.send('HELLO')
+  res.send('HELLO!!!')
 })
 
 videosRouter.get('/:id', async (req: Request, res: Response) => {
