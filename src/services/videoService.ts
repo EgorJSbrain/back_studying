@@ -1,5 +1,5 @@
-import { CreateVideoDto } from "../dtos/create-video.dto"
-import { Video } from "../models/video-model"
+import { CreateVideoDto } from "../dtos/createVideo.dto"
+import { Video } from "../models/videoModel"
 
 
 export const VideoService = {

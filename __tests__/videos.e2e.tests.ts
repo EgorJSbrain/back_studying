@@ -2,7 +2,7 @@ import request from 'supertest'
 import dotenv from 'dotenv'
 import { testDbConnection, testDbDisconnect, testDbClear } from '../src/db/db'
 import { app } from '../src/app'
-import { CodeResponseEnum } from '../src/global_constant'
+import { CodeResponseEnum } from '../src/globalConstant'
 import { before } from 'node:test'
 dotenv.config()
 
