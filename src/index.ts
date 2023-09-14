@@ -10,15 +10,10 @@ dotenv.config()
 
 const PORT = process.env.PORT || 5000;
 
+export const app = express()
 // app.use(bodyParser.json())
 
-// app.use('/videos', videosRouter)
-
-export const app = express()
-
-app.get('/videos', (req: any, res: any) => {
-  res.send('HELLO')
-})
+app.use('/videos', videosRouter)
   
 app.listen(PORT, async() => {
     await dbConnection()
