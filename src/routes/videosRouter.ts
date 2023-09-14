@@ -1,6 +1,6 @@
 import { Router, Request, Response } from "express";
-import { VideoService } from "../services/video-service";
-import { CodeResponseEnum } from "../global_constant";
+import { VideoService } from "../services/videoService";
+import { CodeResponseEnum } from "../globalConstant";
 
 export const videosRouter = Router({})
 
@@ -13,8 +13,7 @@ videosRouter.get('/', async (req: Request, res: Response) => {
     return
   }
 
-  // res.status(CodeResponseEnum.OK_200).send(videos)
-  res.send('HELLO!!!')
+  res.status(CodeResponseEnum.OK_200).send(videos)
 })
 
 videosRouter.get('/:id', async (req: Request, res: Response) => {
