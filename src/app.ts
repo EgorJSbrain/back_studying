@@ -5,4 +5,4 @@ import { videosRouter } from './routes'
 export const app = express()
 app.use(bodyParser.json())
 
-app.use('/', videosRouter)
+app.use('/videos', videosRouter)
