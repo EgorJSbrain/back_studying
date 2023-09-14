@@ -17,7 +17,7 @@ export const testDbClear = async () => {
 }
 
 export const dbConnection = () => {
-  mongoose.connect(`mongodb+srv://user:user@cluster0.gshiwjb.mongodb.net/?retryWrites=true&w=majority`)
+  mongoose.connect(`mongodb+srv://user:${process.env.DB_PASSWORD}@cluster0.gshiwjb.mongodb.net/?retryWrites=true&w=majority`)
 }
 
 export const dbDisconnect = () => {
