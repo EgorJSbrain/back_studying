@@ -5,15 +5,15 @@ import { CodeResponseEnum } from "../globalConstant";
 export const videosRouter = Router({})
 
 videosRouter.get('/', async (req: Request, res: Response) => {
-  const videos = await VideoService.getVideos()
+  // const videos = await VideoService.getVideos()
 
-  if (!videos) {
-    res.sendStatus(CodeResponseEnum.BAD_REQUEST_400)
+  // if (!videos) {
+  //   res.sendStatus(CodeResponseEnum.BAD_REQUEST_400)
 
-    return
-  }
+  //   return
+  // }
 
-  res.status(CodeResponseEnum.OK_200).send(videos)
+  res.status(CodeResponseEnum.OK_200).send('HELLO !!!!!!')
 })
 
 videosRouter.get('/:id', async (req: Request, res: Response) => {
